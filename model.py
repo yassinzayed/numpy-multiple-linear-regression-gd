@@ -48,8 +48,13 @@ def mse_gradient(X, y_true, y_pred):
     # TODO: Return the analytic MSE gradient w.r.t. weights: (2/n) X^T (y_pred - y_true)
     return (2/X.shape[0])*X.T@(y_pred-y_true)
 
-# Step 10 - normal_equation (not yet solved)
-# TODO: implement
+# Step 10 - normal_equation
+def normal_equation(X, y):
+    # TODO: Solve for the closed-form least-squares weights via the normal equation.
+    A = X.T @ X
+    b = X.T @ y
+    weights = np.linalg.solve(A, b)
+    return weights
 
 # Step 11 - initialize_weights (not yet solved)
 # TODO: implement
