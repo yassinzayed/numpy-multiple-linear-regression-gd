@@ -65,8 +65,12 @@ def add_bias_column(X):
     # TODO: Prepend a column of ones to feature matrix X
     return np.column_stack((np.ones(len(X)), X))
 
-# Step 6 - prepare_design_matrix (not yet solved)
-# TODO: implement
+# Step 6 - prepare_design_matrix
+def prepare_design_matrix(X, mean, std):
+    # TODO: Standardize features then add the bias column to form the design matrix.
+    standardized = standardize_features(X, mean, std)
+    final = add_bias_column(standardized)
+    return final
 
 # Step 7 - predict_linear
 def predict_linear(X, weights):
