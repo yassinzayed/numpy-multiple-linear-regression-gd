@@ -30,8 +30,10 @@ def split_train_val_test(X, y, train_frac=0.6, val_frac=0.2):
         y_test
     )
 
-# Step 3 - compute_feature_stats (not yet solved)
-# TODO: implement
+# Step 3 - compute_feature_stats
+def compute_feature_stats(X):
+    # TODO: Compute per-feature mean and std; replace std of 0 with 1
+    return (np.mean(X, axis=0), np.where(np.std(X, axis=0)==0, 1.0, np.std(X, axis=0)))
 
 # Step 4 - standardize_features (not yet solved)
 # TODO: implement
