@@ -6,8 +6,28 @@ Assembled from your step-by-step solutions.
 
 import numpy as np
 
-# Step 1 - shuffle_xy (not yet solved)
-# TODO: implement
+# Step 1 - shuffle_xy
+def shuffle_xy(X, y, seed=42):
+    """Randomly permute feature rows and targets together.
+
+    Parameters
+    ----------
+    X : np.ndarray, shape (n, d)
+        Feature matrix.
+    y : np.ndarray, shape (n,)
+        Target vector.
+    seed : int, optional
+        RNG seed for reproducibility (default 42).
+
+    Returns
+    -------
+    X_shuffled : np.ndarray, shape (n, d)
+    y_shuffled : np.ndarray, shape (n,)
+    """
+    # TODO: Return (X, y) under one shared seeded row permutation
+    np.random.seed(seed) 
+    shuffled = np.random.permutation(len(y))
+    return (X[shuffled, :], y[shuffled])
 
 # Step 2 - split_train_val_test
 def split_train_val_test(X, y, train_frac=0.6, val_frac=0.2):

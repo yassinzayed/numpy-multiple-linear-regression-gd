@@ -10,7 +10,7 @@ python scaffold.py
 
 ## Steps
 
-- [ ] **1.** shuffle_xy
+- [x] **1.** shuffle_xy
 - [x] **2.** split_train_val_test
 - [x] **3.** compute_feature_stats
 - [x] **4.** standardize_features
