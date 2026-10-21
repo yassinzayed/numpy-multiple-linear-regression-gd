@@ -107,7 +107,7 @@ def normal_equation(X, y):
 # Step 11 - initialize_weights
 def initialize_weights(n_features, seed=None):
     # TODO: Return (n_features,) weights sampled from N(0, 0.01)
-    if seed:
+    if seed is not None:
         np.random.seed(seed) 
     weights = np.random.normal(0, 0.01, n_features)
     return weights
@@ -179,7 +179,8 @@ def init_training_state(n_features, seed=None):
         'best_val_loss': best_val_loss,
         'wait': wait,
         'train_losses': train_losses,
-        'val_losses': val_losses
+        'val_losses': val_losses,
+        'stopped': stopped
     }
 
 # Step 16 - run_one_epoch (not yet solved)
