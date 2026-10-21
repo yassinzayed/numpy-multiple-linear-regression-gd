@@ -107,8 +107,24 @@ def normal_equation(X, y):
 # Step 11 - initialize_weights (not yet solved)
 # TODO: implement
 
-# Step 12 - gd_step (not yet solved)
-# TODO: implement
+# Step 12 - gd_step
+def gd_step(X, y, weights, lr):
+    """Run one full-batch gradient descent update on the weights.
+
+    Args:
+        X: Design matrix of shape (n, d_in).
+        y: Target vector of shape (n,).
+        weights: Current weight vector of shape (d_in,).
+        lr: Learning rate (float).
+
+    Returns:
+        Updated weight vector of shape (d_in,).
+    """
+    # TODO: return the updated weight vector after one MSE gradient step
+    preds = predict_linear(X, weights)
+    grad = mse_gradient(X, y, preds)
+    weights -= lr* grad
+    return weights
 
 # Step 13 - epoch_train_val_losses (not yet solved)
 # TODO: implement
