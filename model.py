@@ -104,8 +104,15 @@ def normal_equation(X, y):
     weights = np.linalg.solve(A, b)
     return weights
 
-# Step 11 - initialize_weights (not yet solved)
-# TODO: implement
+# Step 11 - initialize_weights
+def initialize_weights(n_features, seed=None):
+    # TODO: Return (n_features,) weights sampled from N(0, 0.01)
+    if seed is None:
+        weights = np.random.normal(0, 0.01, n_features)
+    else:
+        np.random.seed(seed) 
+        weights = np.random.normal(0, 0.01, n_features)
+    return weights
 
 # Step 12 - gd_step
 def gd_step(X, y, weights, lr):
@@ -158,8 +165,24 @@ def update_early_stop_state(val_loss, best_val_loss, wait, weights, best_weights
         stop = (wait >= patience)
     return (best_val_loss, wait, best_weights, stop)
 
-# Step 15 - init_training_state (not yet solved)
-# TODO: implement
+# Step 15 - init_training_state
+def init_training_state(n_features, seed=None):
+    # TODO: Build the initial training-state dictionary for the GD epoch loop.
+    weights = initialize_weights(n_features, seed=seed)
+    best_weights = weights.copy()
+    best_val_loss = np.inf
+    wait = 0
+    train_losses = []
+    val_losses = []
+    stopped = False
+    return {
+        'weights': weights,
+        'best_weights': best_weights,
+        'best_val_loss': best_val_loss,
+        'wait': wait,
+        'train_losses': train_losses,
+        'val_losses': val_losses
+    }
 
 # Step 16 - run_one_epoch (not yet solved)
 # TODO: implement
