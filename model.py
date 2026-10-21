@@ -107,11 +107,9 @@ def normal_equation(X, y):
 # Step 11 - initialize_weights
 def initialize_weights(n_features, seed=None):
     # TODO: Return (n_features,) weights sampled from N(0, 0.01)
-    if seed is None:
-        weights = np.random.normal(0, 0.01, n_features)
-    else:
+    if seed:
         np.random.seed(seed) 
-        weights = np.random.normal(0, 0.01, n_features)
+    weights = np.random.normal(0, 0.01, n_features)
     return weights
 
 # Step 12 - gd_step
