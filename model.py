@@ -101,7 +101,7 @@ def normal_equation(X, y):
     # TODO: Solve for the closed-form least-squares weights via the normal equation.
     A = X.T @ X
     b = X.T @ y
-    weights = np.linalg.solve(A, b)
+    weights, residuals, rank, s = np.linalg.lstsq(A, b, rcond=0)
     return weights
 
 # Step 11 - initialize_weights
